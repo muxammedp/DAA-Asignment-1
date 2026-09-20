@@ -11,12 +11,12 @@ public class Experiment {
     public static void main(String[] args) {
         initializeCSV();
 
-        Random random = new Random(42); // Fixed seed for reproducibility
+        Random random = new Random(42); 
 
         for (int size : INPUT_SIZES) {
             System.out.println("Testing input size: " + size);
 
-            // Generate test arrays
+            
             int[] randomArray = generateRandomArray(size, random);
             int[] sortedArray = Arrays.copyOf(randomArray, size);
             Arrays.sort(sortedArray);
@@ -24,26 +24,26 @@ public class Experiment {
             reverse(reverseSortedArray);
             int[] duplicateArray = generateDuplicateArray(size, random);
 
-            // Test MergeSort
+            
             testMergeSort(size, "random", randomArray);
             testMergeSort(size, "sorted", sortedArray);
             testMergeSort(size, "reverse_sorted", reverseSortedArray);
             testMergeSort(size, "duplicate", duplicateArray);
 
-            // Test QuickSort
+            
             testQuickSort(size, "random", randomArray);
             testQuickSort(size, "sorted", sortedArray);
             testQuickSort(size, "reverse_sorted", reverseSortedArray);
             testQuickSort(size, "duplicate", duplicateArray);
 
-            // Test Deterministic Select (only for k = size/2)
+            
             int k = size / 2;
             testDeterministicSelect(size, "random", randomArray, k);
             testDeterministicSelect(size, "sorted", sortedArray, k);
             testDeterministicSelect(size, "reverse_sorted", reverseSortedArray, k);
             testDeterministicSelect(size, "duplicate", duplicateArray, k);
 
-            // Test Closest Pair (only for Point arrays)
+            
             testClosestPair(size, "random", randomArray);
             testClosestPair(size, "sorted", sortedArray);
             testClosestPair(size, "reverse_sorted", reverseSortedArray);
@@ -76,16 +76,16 @@ public class Experiment {
     private static int[] generateRandomArray(int size, Random random) {
         int[] array = new int[size];
         for (int i = 0; i < size; i++) {
-            array[i] = random.nextInt(1000000); // Range 0 to 999999
+            array[i] = random.nextInt(1000000); 
         }
         return array;
     }
 
     private static int[] generateDuplicateArray(int size, Random random) {
         int[] array = new int[size];
-        int duplicateValue = random.nextInt(100); // Many duplicates of a small range
+        int duplicateValue = random.nextInt(100); 
         for (int i = 0; i < size; i++) {
-            array[i] = duplicateValue + random.nextInt(10); // Small variations around duplicateValue
+            array[i] = duplicateValue + random.nextInt(10); 
         }
         return array;
     }
@@ -150,10 +150,10 @@ public class Experiment {
     }
 
     private static void testClosestPair(int size, String inputType, int[] array) {
-        // Convert int array to Point array
+        
         Point[] points = new Point[size];
         for (int i = 0; i < size; i++) {
-            points[i] = new Point(array[i], array[i]); // Using same value for x and y for simplicity
+            points[i] = new Point(array[i], array[i]); 
         }
 
         ClosestPairSolver solver = new ClosestPairSolver();

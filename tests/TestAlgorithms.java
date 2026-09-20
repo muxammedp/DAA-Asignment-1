@@ -3,35 +3,35 @@ public class TestAlgorithms {
         System.out.println("Testing Algorithms");
         System.out.println("==================");
 
-        // Test data
+        
         int[] data = {64, 34, 25, 12, 22, 11, 90};
         int[] dataCopy;
 
         System.out.println("Original array: ");
         printArray(data);
 
-        // Test MergeSort
+        
         dataCopy = data.clone();
         MergeSorter mergeSorter = new MergeSorter();
         mergeSorter.sort(dataCopy);
         System.out.println("MergeSort: ");
         printArray(dataCopy);
 
-        // Test QuickSort
+        
         dataCopy = data.clone();
         QuickSorter quickSorter = new QuickSorter();
         quickSorter.sort(dataCopy);
         System.out.println("QuickSort: ");
         printArray(dataCopy);
 
-        // Test Deterministic Select (find median)
+        
         dataCopy = data.clone();
         DeterministicSelector selector = new DeterministicSelector();
         int medianIndex = dataCopy.length / 2;
         int median = selector.select(dataCopy, medianIndex);
         System.out.println("Median: " + median);
 
-        // Test Closest Pair
+        
         Point[] points = {
             new Point(2, 3),
             new Point(12, 30),

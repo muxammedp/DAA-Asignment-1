@@ -27,33 +27,33 @@ public class QuickSorter {
             return;
         }
 
-        // Partition the array and get pivot index
+        
         int pivotIndex = partition(array, left, right);
 
-        // Recurse on smaller partition first, then iterate on larger one
+        
         int leftSize = pivotIndex - left;
         int rightSize = right - pivotIndex;
 
         if (leftSize < rightSize) {
             quickSort(array, left, pivotIndex - 1, depth + 1);
-            // Iterate on larger partition (tail recursion elimination)
+            
             left = pivotIndex + 1;
         } else {
             quickSort(array, pivotIndex + 1, right, depth + 1);
-            // Iterate on larger partition (tail recursion elimination)
+            
             right = pivotIndex - 1;
         }
 
-        // Continue with the larger partition iteratively
+        
         if (left < right) {
             quickSort(array, left, right, depth);
         }
     }
 
     private int partition(int[] array, int left, int right) {
-        // Random pivot selection
+        
         int pivotIndex = left + random.nextInt(right - left + 1);
-        swap(array, pivotIndex, right); // Move pivot to end
+        swap(array, pivotIndex, right); 
         int pivotValue = array[right];
 
         int i = left - 1;
@@ -64,7 +64,7 @@ public class QuickSorter {
                 swap(array, i, j);
             }
         }
-        swap(array, i + 1, right); // Move pivot to correct position
+        swap(array, i + 1, right); 
         return i + 1;
     }
 

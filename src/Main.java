@@ -33,7 +33,7 @@ public class Main {
 
         System.out.println();
 
-        // Test MergeSort
+        
         int[] dataCopy = Arrays.copyOf(data, data.length);
         MergeSorter mergeSorter = new MergeSorter();
         long startTime = System.nanoTime();
@@ -47,7 +47,7 @@ public class Main {
         System.out.println("  Comparisons: " + mergeSorter.getComparisons());
         System.out.println();
 
-        // Test QuickSort
+        
         dataCopy = Arrays.copyOf(data, data.length);
         QuickSorter quickSorter = new QuickSorter();
         startTime = System.nanoTime();
@@ -62,7 +62,7 @@ public class Main {
         System.out.println("  Comparisons: " + quickSorter.getComparisons());
         System.out.println();
 
-        // Test Deterministic Select (find median)
+        
         dataCopy = Arrays.copyOf(data, data.length);
         DeterministicSelector selector = new DeterministicSelector();
         int medianIndex = dataCopy.length / 2;
@@ -77,10 +77,10 @@ public class Main {
         System.out.println("  Comparisons: " + selector.getComparisons());
         System.out.println();
 
-        // Test Closest Pair
+        
         Point[] points = new Point[data.length];
         for (int i = 0; i < data.length; i++) {
-            points[i] = new Point(data[i], data[i]); // Using same value for x and y
+            points[i] = new Point(data[i], data[i]); 
         }
 
         ClosestPairSolver closestPairSolver = new ClosestPairSolver();
